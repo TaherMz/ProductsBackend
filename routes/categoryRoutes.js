@@ -12,9 +12,11 @@ router
   .route("/:categoryId")
   .get(categoryController.getCategory)
   .delete(categoryController.deleteCategory)
-  .patch(categoryController.updateCategory);
+  .patch(categoryController.updateCategory)
 
-
+router
+  .route("/getCategory/:name")
+  .get(categoryController.getCategoryByName)
 
 
 module.exports = router;

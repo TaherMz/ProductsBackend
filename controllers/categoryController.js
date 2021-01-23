@@ -78,6 +78,24 @@ const getCategory = async (req, res) => {
   }
 };
 
+const getCategoryByName = async (req, res) => {
+  try{
+    const categories = await Category.find({name:req.params.name});
+    res.status(200).json({
+    success: "True",
+    data: categories
+   
+    
+    }); 
+    console.log()
+  } catch(err){
+        res.status(404).json({
+          success: "false",
+        msg:err
+        
+      })
+  }
+};
 
 
 module.exports = {
@@ -86,5 +104,6 @@ module.exports = {
   updateCategory,
   deleteCategory,
   getCategory,
+  getCategoryByName
  
 };
