@@ -10,6 +10,7 @@ router
 
 router
   .route("/:categoryId")
+  .get(categoryController.getCategory)
   .delete(categoryController.deleteCategory)
   .patch(categoryController.updateCategory);
 

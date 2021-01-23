@@ -66,6 +66,18 @@ const getCategories = async (req, res) => {
   }
 }
 
+const getCategory = async (req, res) => {
+  try{
+    const category = await Category.findById(req.params.categoryId, req.body);
+    res.status(200).json({
+    success: "True",
+    data : category
+    }); 
+  } catch(err){
+    err => console.log(err);
+  }
+};
+
 
 
 module.exports = {
@@ -73,5 +85,6 @@ module.exports = {
   addCategory,
   updateCategory,
   deleteCategory,
+  getCategory,
  
 };

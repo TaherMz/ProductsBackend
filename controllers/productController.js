@@ -66,6 +66,18 @@ const getProducts = async (req, res) => {
   }
 }
 
+const getProduct = async (req, res) => {
+  try{
+    const product = await Product.findById(req.params.productId, req.body);
+    res.status(200).json({
+    success: "True",
+    data : product
+    }); 
+  } catch(err){
+    err => console.log(err);
+  }
+};
+
 
 
 module.exports = {
@@ -73,5 +85,6 @@ module.exports = {
   addProduct,
   updateProduct,
   deleteProduct,
+  getProduct,
  
 };
